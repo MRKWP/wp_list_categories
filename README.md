@@ -6,3 +6,5 @@ This is a direct extraction of the wp_list_categories() function.
 I use this in sidebars for custom post types and custom taxonomies.
 
 The block is just a simple started and is useful for anyone wanting a dynamic block.
+
+For a great youtube video on this code you can view this url: https://youtu.be/SsJx0szYZZk
