@@ -11,8 +11,15 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 
+import {
+    TextControl,
+    PanelBody,
+    PanelRow,
+    ToggleControl,
+    SelectControl
+} from '@wordpress/components';
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -20,6 +27,7 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+import { Fragment, useState } from "react";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -29,13 +37,111 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit({ attributes, setAttributes }) {
+
+    const taxonomies = wp.data.select('core').getTaxonomies();
+
+    const taxonomy_options = taxonomies?.map( taxonomy => ( {
+        label: `${ taxonomy.name } (${ taxonomy.slug })`,
+        value: taxonomy.slug,
+    } ) );
+
+    const {
+        taxonomy,
+        depth,
+        title_li,
+        show_count,
+        use_desc_for_title,
+        hide_title_if_empty,
+        show_debug
+    } = attributes;
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'WP List Category Block',
-				'mrk-wp-list-categories'
-			) }
-		</p>
+        <Fragment>
+            <InspectorControls>
+                <PanelBody
+                    title={__('Category List Settings', 'mrk-wp-list-categories')}
+                    initialOpen={true}
+                >
+                    <PanelRow>
+                        <fieldset>
+                            <SelectControl
+                                label={__('Taxonomy', 'mrk-wp-list-categories')}
+                                value={ taxonomy }
+                                options={ taxonomy_options }
+                                onChange={ value => setAttributes( { taxonomy: value } ) }
+                                __nextHasNoMarginBottom
+                            />
+                        </fieldset>
+                    </PanelRow>
+                    <PanelRow>
+                        <fieldset>
+                            <TextControl
+                                label={__('Depth of list', 'mrk-wp-list-categories')}
+                                value={depth}
+                                onChange={ ( depth ) => setAttributes( { depth } )}
+                                type="text"
+                            />
+                        </fieldset>
+                    </PanelRow>
+                    <PanelRow>
+                        <fieldset>
+                            <TextControl
+                                label={__('Title Li', 'mrk-wp-list-categories')}
+                                value={title_li}
+                                onChange={ ( title_li ) => setAttributes( { title_li } )}
+                                type="text"
+                            />
+                        </fieldset>
+                    </PanelRow>
+                    <PanelRow>
+                        <fieldset>
+                            <ToggleControl
+                                label={__('Show Post Count', 'mrk-wp-list-categories')}
+                                checked={show_count}
+                                onChange={ () => setAttributes( { show_count: !show_count } )}
+                                type="text"
+                            />
+                        </fieldset>
+                    </PanelRow>
+                    <PanelRow>
+                        <fieldset>
+                            <ToggleControl
+                                label={__('Show Desc for Title', 'mrk-wp-list-categories')}
+                                checked={use_desc_for_title}
+                                onChange={ () => setAttributes( { use_desc_for_title: !use_desc_for_title } )}
+                                type="text"
+                            />
+                        </fieldset>
+                    </PanelRow>
+                    <PanelRow>
+                        <fieldset>
+                            <ToggleControl
+                                label={__('Hide title if Empty', 'mrk-wp-list-categories')}
+                                checked={hide_title_if_empty}
+                                onChange={ () => setAttributes( { hide_title_if_empty: !hide_title_if_empty } )}
+                                type="text"
+                            />
+                        </fieldset>
+                    </PanelRow>
+                    <PanelRow>
+                        <fieldset>
+                            <ToggleControl
+                                label={__('Show Debug in QM', 'mrk-wp-list-categories')}
+                                checked={show_debug}
+                                onChange={ () => setAttributes( { show_debug: !show_debug } )}
+                                type="text"
+                            />
+                        </fieldset>
+                    </PanelRow>
+                </PanelBody>
+            </InspectorControls>
+            <p { ...useBlockProps() }>
+                { __(
+                    'WP List Category Block',
+                    'mrk-wp-list-categories'
+                ) }
+            </p>
+        </Fragment>
 	);
 }

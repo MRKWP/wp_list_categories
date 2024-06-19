@@ -3,13 +3,43 @@
   "apiVersion": 3,
   "name": "mrkwp/wp-list-categories",
   "version": "0.1.0",
-  "title": "Block Dynamic Rendering",
+  "title": "WP List Categories",
   "category": "widgets",
   "icon": "smiley",
   "description": "Render wp_list_categories with dynamic block",
   "example": {},
   "supports": {
     "html": false
+  },
+  "attributes": {
+    "taxonomy": {
+      "type": "string",
+      "default": "category"
+    },
+    "depth": {
+      "type": "number",
+      "default": 0
+    },
+    "title_li": {
+      "type": "string",
+      "default": "Categories"
+    },
+    "show_count": {
+      "type": "boolean",
+      "default": false
+    },
+    "use_desc_for_title": {
+      "type": "boolean",
+      "default": false
+    },
+    "hide_title_if_empty": {
+      "type": "boolean",
+      "default": false
+    },
+    "show_debug": {
+      "type": "boolean",
+      "default": false
+    }
   },
   "keywords": [
     "64756b"
