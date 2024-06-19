@@ -17,5 +17,6 @@
 	"dependencies": {
 		"@wordpress/create-block": "^4.44.0",
 		"@wordpress/scripts": "^28.1.0"
-	}
+	},
+	"files": [ "wp_list_categories.php", "build" ]
 }
