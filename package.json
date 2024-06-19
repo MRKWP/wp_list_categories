@@ -1,0 +1,20 @@
+{
+	"name": "mrk_wp_list_categories",
+	"version": "1.0.0",
+	"description": "A block for the display of categories in a list. A use of wp_list_categories function.",
+	"author": "M R K WP - Matt Knighton",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"start": "wp-scripts start"
+	},
+	"dependencies": {
+		"@wordpress/scripts": "^28.1.0"
+	}
+}

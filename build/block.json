@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mrkwp/wp-list-categories",
+  "version": "0.1.0",
+  "title": "Block Dynamic Rendering",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Render wp_list_categories with dynamic block",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "keywords": [
+    "64756b"
+  ],
+  "textdomain": "mrkwp/wp-list-categories",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
