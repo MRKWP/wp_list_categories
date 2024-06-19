@@ -1,1 +1,1 @@
-.wp-block-mrkwp-wp-list-categories li.current-cat{color:var(--global-palette-highlight);font-weight:700;text-decoration:underline}
+.wp-block-mrkwp-wp-list-categories li.current-cat>a:first-child{color:var(--global-palette-highlight);font-weight:700;text-decoration:underline}

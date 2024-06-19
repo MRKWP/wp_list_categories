@@ -1,4 +1,4 @@
-.wp-block-mrkwp-wp-list-categories li.current-cat{
+.wp-block-mrkwp-wp-list-categories li.current-cat > a:first-child{
     color: var(--global-palette-highlight);
     font-weight: bold;
     text-decoration: underline;
