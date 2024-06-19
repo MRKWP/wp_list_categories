@@ -4,7 +4,7 @@
  * Description:       A dynamic block for wp_list_categories
  * Requires at least: 6.1
  * Requires PHP:      8.1
- * Version:           0.1.0
+ * Version:           1.1.0
  * Author:            Matt Knighton
  * License:           MIT
  * Text Domain:       mrkwp/wp_list_categories

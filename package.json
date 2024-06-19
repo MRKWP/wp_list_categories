@@ -1,6 +1,6 @@
 {
 	"name": "mrk_wp_list_categories",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "A block for the display of categories in a list. A use of wp_list_categories function.",
 	"author": "M R K WP - Matt Knighton",
 	"license": "GPL-2.0-or-later",
