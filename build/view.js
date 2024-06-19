@@ -1,1 +1,0 @@
-console.log("Hello World! (from mrk_wp_list_categories)");
